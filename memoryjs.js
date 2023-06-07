@@ -60,6 +60,25 @@ startGameBtn.addEventListener("click", () => {
   gameBoard.classList.remove("hidden");
 });
 
+function hidePlayerDivs() {
+  if (threePlayersBtn.classList.contains("checked")) {
+    document.querySelector(".player-four").style.display = "none";
+    document.querySelector(".player-three").style.display = "flex";
+  } else if (twoPlayersBtn.classList.contains("checked")) {
+    document.querySelector(".player-three").style.display = "none";
+    document.querySelector(".player-four").style.display = "none";
+  } else {
+    document.querySelector(".player-three").style.display = "block";
+    document.querySelector(".player-four").style.display = "block";
+  }
+}
+
+twoPlayersBtn.addEventListener("click", hidePlayerDivs);
+threePlayersBtn.addEventListener("click", hidePlayerDivs);
+
+// Hide initially based on default selection
+hidePlayerDivs();
+
 //Menu mobile in game
 const modalMenu = document.querySelector(".modal-menu");
 const modalSoloGameOver = document.querySelector(".modal-solo-game-over");
